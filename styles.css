@@ -219,3 +219,45 @@ footer {
 #kontak p span {
   font-weight: bold;
 }
+
+/* Core Value */
+#core-value {
+  background-color: #e8f5e9; /* Warna latar belakang hijau muda */
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#core-value .overlay {
+  background: rgba(255, 255, 255, 0.9); /* Overlay putih transparan */
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#core-value h2 {
+  font-size: 2.5em;
+  color: #1a1a1a; /* Teks judul dengan warna gelap */
+  margin-bottom: 20px;
+}
+
+#core-value p {
+  font-size: 1.1em;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Bubble effect for Core Value */
+#core-value .bubble-container-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
