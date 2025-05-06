@@ -158,3 +158,31 @@ footer {
   background: rgba(0, 188, 212, 0.3); /* Lighter bubble color */
   animation-duration: 12s;
 }
+
+/* Kontak Kami */
+#kontak {
+  background-color: #e0f7fa; /* Warna biru muda yang segar */
+  padding: 40px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 30px auto;
+  max-width: 800px;
+}
+
+#kontak h2 {
+  color: #00796b; /* Warna hijau gelap untuk teks judul */
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#kontak p {
+  color: #333;
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+#kontak p span {
+  font-weight: bold;
+}
