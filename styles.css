@@ -1,0 +1,135 @@
+/* Mengatur font umum untuk seluruh halaman */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333333;
+}
+
+/* Header */
+header {
+  background-color: #1E2A47;
+  color: white;
+  padding: 10px 0; /* Sesuaikan padding untuk header */
+  display: flex;
+  justify-content: center; /* Memastikan header berpusat */
+  align-items: center;
+  width: 100%;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Menjaga logo di kiri */
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.logo {
+  width: 40px; /* Ukuran logo yang disesuaikan */
+  height: auto;
+  margin-right: 20px; /* Jarak antara logo dan nama PT */
+}
+
+.logo-text h1 {
+  margin: 0;
+  font-size: 2.2em; /* Ukuran font nama PT yang disesuaikan */
+  text-align: left; /* Nama PT akan rata kiri setelah logo */
+}
+
+/* Foto Karyawan */
+.employee-photo {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.employee-photo img {
+  width: 300px;
+  border-radius: 8px;
+}
+
+/* About Section */
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 40px;
+}
+
+.about-text {
+  flex: 1;
+  padding-left: 20px;
+}
+
+.about h2 {
+  color: #1E2A47;
+  font-weight: 700;
+}
+
+.about p {
+  font-weight: 400;
+}
+
+/* Produk Section */
+.products {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.product-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.product-item {
+  width: 22%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.product-item img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Kontak Section */
+.contact-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.contact-info .office,
+.contact-info .contact-methods {
+  width: 48%;
+}
+
+.contact-methods ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.contact-methods a {
+  color: #1E2A47;
+  text-decoration: none;
+}
+
+.contact-methods a:hover {
+  color: #172441;
+}
+
+/* Footer */
+footer {
+  background-color: #1E2A47;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
