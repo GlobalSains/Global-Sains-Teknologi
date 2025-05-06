@@ -1,4 +1,3 @@
-// Fungsi untuk menambahkan efek fade-in saat scroll
 function fadeInOnScroll() {
   const elements = document.querySelectorAll('.fade-in');
   elements.forEach(el => {
@@ -18,25 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const carousel = document.querySelector('.employee-photo-carousel');
   const track = carousel.querySelector('.carousel-track');
   const images = track.querySelectorAll('.employee-image');
-
-  const indicatorsContainer = document.createElement('div');
-  indicatorsContainer.className = 'carousel-indicators';
-  carousel.appendChild(indicatorsContainer);
-
-  const indicators = [];
-
-  images.forEach((img, i) => {
-    const indicator = document.createElement('span');
-    indicator.className = 'carousel-indicator';
-    if (i === 0) indicator.classList.add('active');
-    indicatorsContainer.appendChild(indicator);
-    indicators.push(indicator);
-
-    // Klik indikator langsung geser ke gambar
-    indicator.addEventListener('click', () => {
-      scrollToImage(i);
-    });
-  });
+  const indicators = document.querySelectorAll('.carousel-indicator');
 
   let index = 0;
   const total = images.length;
@@ -55,6 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     updateIndicators(index);
   }
+
+  indicators.forEach((indicator, i) => {
+    indicator.addEventListener('click', () => {
+      scrollToImage(i);
+    });
+  });
 
   function autoScroll() {
     scrollToImage(index + 1);
