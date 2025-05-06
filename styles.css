@@ -50,13 +50,6 @@ header {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.carousel-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .carousel-track-wrapper {
   overflow-x: hidden;
   display: flex;
@@ -66,35 +59,23 @@ header {
 .carousel-track {
   display: flex;
   scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
 .employee-image {
   flex: 0 0 100%;
+  scroll-snap-align: center;
+  border-radius: 8px;
   max-width: 100%;
   height: auto;
   transition: transform 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Menambahkan tombol geser */
-.carousel-button {
-  position: absolute;
-  top: 50%;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  font-size: 24px;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-  z-index: 10;
-  transform: translateY(-50%);
-}
-
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
+.employee-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* About Section */
@@ -106,6 +87,10 @@ header {
 
 .about-text {
   max-width: 800px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .about h2 {
@@ -117,37 +102,41 @@ header {
   font-weight: 400;
 }
 
-/* Bubble effect pada About, Vision, dan Mission */
-.bubble {
-  opacity: 0;
-  transform: translateY(30px) scale(0.95);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.bubble.visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
+/* Visi dan Misi */
 .vision-mission {
   margin-top: 30px;
+  display: flex;
+  gap: 20px;
 }
 
-.vision-box, .mission-box {
+.vision-box,
+.mission-box {
   background-color: #fff;
   padding: 20px;
   margin-bottom: 20px;
   border-left: 6px solid #1E2A47;
-  border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  transition: transform 0.4s ease-in-out;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.vision-box:hover, .mission-box:hover {
-  transform: translateY(-10px);
+.vision-title {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #1E2A47;
+  margin-bottom: 10px;
 }
 
-/* Kontak Section dengan background */
+.vision-text,
+.mission-list {
+  font-size: 1em;
+  color: #444;
+}
+
+.mission-list li {
+  margin-bottom: 8px;
+}
+
+/* Contact Section */
 .contact-info {
   background-image: url("images/gedung-kantor.jpg");
   background-size: cover;
@@ -158,7 +147,7 @@ header {
 }
 
 .contact-overlay {
-  background-color: rgba(30, 42, 71, 0.7);
+  background-color: rgba(30, 42, 71, 0.7); /* transparansi 30-40% */
   padding: 30px;
   display: flex;
   justify-content: space-between;
@@ -193,7 +182,7 @@ footer {
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .fade-in.visible {
