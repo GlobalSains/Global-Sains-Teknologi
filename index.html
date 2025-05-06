@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PT Global Sains Teknologi</title>
-  
-  <!-- Link untuk font Roboto dari Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,18 +17,30 @@
     </div>
   </header>
 
-<!-- Carousel Foto Karyawan -->
-<section class="employee-photo-carousel fade-in">
-  <button class="carousel-btn prev">&#10094;</button>
-  <div class="carousel-track-wrapper">
-    <div class="carousel-track">
-      <img src="images/karyawan1.jpg" alt="Karyawan 1" class="employee-image">
-      <img src="images/karyawan2.jpg" alt="Karyawan 2" class="employee-image">
-      <img src="images/karyawan3.jpg" alt="Karyawan 3" class="employee-image">
+  <!-- Carousel Foto Karyawan -->
+  <section class="employee-photo-carousel fade-in">
+    <div class="carousel-track-wrapper">
+      <div class="carousel-track">
+        <div class="employee-image-wrapper">
+          <img src="images/karyawan1.jpg" alt="Karyawan 1" class="employee-image">
+          <div class="swipe-hint">Geser</div>
+        </div>
+        <div class="employee-image-wrapper">
+          <img src="images/karyawan2.jpg" alt="Karyawan 2" class="employee-image">
+          <div class="swipe-hint">Geser</div>
+        </div>
+        <div class="employee-image-wrapper">
+          <img src="images/karyawan3.jpg" alt="Karyawan 3" class="employee-image">
+          <div class="swipe-hint">Geser</div>
+        </div>
+      </div>
     </div>
-  </div>
-  <button class="carousel-btn next">&#10095;</button>
-</section>
+    <div class="carousel-indicators">
+      <span class="indicator active"></span>
+      <span class="indicator"></span>
+      <span class="indicator"></span>
+    </div>
+  </section>
   
   <!-- About Section -->
   <section class="about fade-in">
