@@ -19,20 +19,13 @@ window.addEventListener('scroll', fadeInOnScroll);
 document.addEventListener('DOMContentLoaded', () => {
   fadeInOnScroll();
 
-  // Carousel Otomatis dan Manual
+  // Carousel Otomatis dan Manual tanpa dot
   const carousel = document.querySelector('.employee-photo-carousel');
   const track = carousel.querySelector('.carousel-track');
   const images = track.querySelectorAll('.employee-image');
-  const dots = carousel.querySelectorAll('.dot');
 
   let index = 0;
   const total = images.length;
-
-  function updateDots() {
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-    });
-  }
 
   function autoScroll() {
     index = (index + 1) % total;
@@ -40,17 +33,17 @@ document.addEventListener('DOMContentLoaded', () => {
       left: images[index].offsetLeft,
       behavior: 'smooth'
     });
-    updateDots();
   }
 
   // Geser otomatis tiap 5 detik
   let interval = setInterval(autoScroll, 5000);
 
-  // Deteksi scroll manual dan update bubble
+  // Reset interval saat user scroll manual
   carousel.addEventListener('scroll', () => {
     clearInterval(interval);
     interval = setInterval(autoScroll, 5000);
 
+    // Update index aktif berdasarkan posisi scroll
     let closestIndex = 0;
     let closestDistance = Math.abs(track.scrollLeft - images[0].offsetLeft);
     for (let i = 1; i < images.length; i++) {
@@ -61,18 +54,5 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
     index = closestIndex;
-    updateDots();
-  });
-
-  // Dot diklik
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      index = i;
-      track.scrollTo({
-        left: images[index].offsetLeft,
-        behavior: 'smooth'
-      });
-      updateDots();
-    });
   });
 });
