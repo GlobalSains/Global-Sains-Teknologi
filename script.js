@@ -10,19 +10,42 @@ function fadeInOnScroll() {
   });
 }
 
-// Jalankan efek saat scroll
 window.addEventListener('scroll', fadeInOnScroll);
 
 document.addEventListener('DOMContentLoaded', () => {
   fadeInOnScroll();
 
-  // Carousel otomatis dan manual tanpa tombol
   const carousel = document.querySelector('.employee-photo-carousel');
   const track = carousel.querySelector('.carousel-track');
   const images = track.querySelectorAll('.employee-image');
 
+  const indicatorsContainer = document.createElement('div');
+  indicatorsContainer.className = 'carousel-indicators';
+  carousel.appendChild(indicatorsContainer);
+
+  const indicators = [];
+
+  images.forEach((img, i) => {
+    const indicator = document.createElement('span');
+    indicator.className = 'carousel-indicator';
+    if (i === 0) indicator.classList.add('active');
+    indicatorsContainer.appendChild(indicator);
+    indicators.push(indicator);
+
+    // Klik indikator langsung geser ke gambar
+    indicator.addEventListener('click', () => {
+      scrollToImage(i);
+    });
+  });
+
   let index = 0;
   const total = images.length;
+
+  function updateIndicators(currentIndex) {
+    indicators.forEach((ind, i) => {
+      ind.classList.toggle('active', i === currentIndex);
+    });
+  }
 
   function scrollToImage(i) {
     index = (i + total) % total;
@@ -30,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
       left: images[index].offsetLeft,
       behavior: 'smooth'
     });
+    updateIndicators(index);
   }
 
   function autoScroll() {
@@ -52,5 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
     index = closest;
+    updateIndicators(index);
   });
 });
