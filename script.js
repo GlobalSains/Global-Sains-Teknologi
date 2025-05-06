@@ -12,8 +12,8 @@ function fadeInOnScroll() {
   });
 }
 
-// Menambahkan event listener untuk scroll
+// Jalankan saat scroll
 window.addEventListener('scroll', fadeInOnScroll);
 
-// Memastikan elemen-elemen fade-in muncul saat halaman dimuat
+// Jalankan saat halaman dimuat
 document.addEventListener('DOMContentLoaded', fadeInOnScroll);
