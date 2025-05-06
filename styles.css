@@ -58,7 +58,7 @@ p, li {
 
 /* Section About */
 #about {
-  background-color: #f1f8e9; /* Warna latar belakang hijau muda yang menyegarkan */
+  background: linear-gradient(to bottom, #ffffff, #e3f2fd); /* Gradasi warna biru muda ke putih */
   padding: 60px 20px;
   text-align: center;
   position: relative;
@@ -66,18 +66,19 @@ p, li {
 }
 
 #about .overlay {
-  background: rgba(255, 255, 255, 0.9); /* Overlay putih transparan */
+  background: rgba(255, 255, 255, 0.95); /* Overlay putih transparan dengan sedikit opacity */
   padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px; /* Memberikan radius sudut yang lebih lembut */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Memberikan efek bayangan yang lebih halus */
   max-width: 800px;
   margin: 0 auto;
 }
 
 #about h2 {
   font-size: 2.5em;
-  color: #1a1a1a; /* Teks judul dengan warna gelap */
+  color: #1a1a1a; /* Warna gelap untuk teks judul */
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
 #about p {
@@ -85,17 +86,8 @@ p, li {
   color: #333;
   line-height: 1.6;
   margin-bottom: 20px;
+  font-weight: 400;
 }
-
-/* Bubble effect for About */
-#about .bubble-container-section {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
 }
 
 /* Slider */
