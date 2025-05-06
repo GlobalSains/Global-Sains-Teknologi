@@ -63,6 +63,27 @@ header {
   border-radius: 8px;
 }
 
+/* Dot Carousel */
+.carousel-dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 6px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.4s ease;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #1E2A47;
+}
+
 /* About Section */
 .about-container {
   margin: 40px;
