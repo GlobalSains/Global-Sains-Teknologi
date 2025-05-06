@@ -1,26 +1,23 @@
-// Fungsi untuk memeriksa apakah elemen terlihat di viewport
-function isElementInViewport(el) {
-  const rect = el.getBoundingClientRect();
-  return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  );
-}
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("section");
 
-// Menambahkan kelas 'visible' ketika elemen berada di viewport
-function handleScroll() {
-  const elements = document.querySelectorAll('.fade-in');
-  elements.forEach((element) => {
-    if (isElementInViewport(element)) {
-      element.classList.add('visible');
-    }
+  const options = {
+    threshold: 0.1
+  };
+
+  const revealSection = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(revealSection, options);
+
+  sections.forEach(section => {
+    section.classList.add("hidden");
+    observer.observe(section);
   });
-}
-
-// Menambahkan event listener untuk scroll
-window.addEventListener('scroll', handleScroll);
-
-// Memanggil fungsi handleScroll saat pertama kali load halaman
-window.addEventListener('load', handleScroll);
+});
