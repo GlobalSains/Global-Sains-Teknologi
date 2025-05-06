@@ -1,23 +1,30 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll("section");
+// Auto-scroll slider
+const slider = document.querySelector('.slider-container');
+let scrollInterval = setInterval(() => {
+  slider.scrollBy({ left: 220, behavior: 'smooth' });
+  if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+    slider.scrollTo({ left: 0, behavior: 'smooth' });
+  }
+}, 3000);
 
-  const options = {
-    threshold: 0.1
-  };
+// Bubble animation generator
+const bubbleContainer = document.createElement('div');
+bubbleContainer.classList.add('bubble-container');
+document.body.appendChild(bubbleContainer);
 
-  const revealSection = (entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  };
+function createBubble() {
+  const bubble = document.createElement('div');
+  bubble.classList.add('bubble');
+  const size = Math.random() * 20 + 10;
+  bubble.style.width = `${size}px`;
+  bubble.style.height = `${size}px`;
+  bubble.style.left = `${Math.random() * 100}%`;
+  bubble.style.animationDuration = `${5 + Math.random() * 5}s`;
+  bubbleContainer.appendChild(bubble);
 
-  const observer = new IntersectionObserver(revealSection, options);
+  setTimeout(() => {
+    bubble.remove();
+  }, 10000);
+}
 
-  sections.forEach(section => {
-    section.classList.add("hidden");
-    observer.observe(section);
-  });
-});
+setInterval(createBubble, 500);
