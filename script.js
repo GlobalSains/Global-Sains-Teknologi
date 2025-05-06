@@ -1,68 +1,39 @@
-function fadeInOnScroll() {
-  const elements = document.querySelectorAll('.fade-in');
-  elements.forEach(el => {
-    const pos = el.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
-    if (pos < windowHeight - 100) {
-      el.classList.add('visible');
-    }
-  });
+let currentSlide = 0;
+const slides = document.querySelectorAll('.employee-image-wrapper');
+
+function moveSlide(direction) {
+  currentSlide += direction;
+  if (currentSlide < 0) {
+    currentSlide = slides.length - 1;
+  } else if (currentSlide >= slides.length) {
+    currentSlide = 0;
+  }
+  updateSlidePosition();
 }
 
-window.addEventListener('scroll', fadeInOnScroll);
+function updateSlidePosition() {
+  const track = document.querySelector('.carousel-track');
+  const offset = -currentSlide * 100; // Set the width of each image to 100% of container
+  track.style.transform = `translateX(${offset}%)`;
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-  fadeInOnScroll();
+// Swipe functionality on mobile devices
+let startX;
+let endX;
 
-  const carousel = document.querySelector('.employee-photo-carousel');
-  const track = carousel.querySelector('.carousel-track');
-  const images = track.querySelectorAll('.employee-image');
-  const indicators = document.querySelectorAll('.carousel-indicator');
-
-  let index = 0;
-  const total = images.length;
-
-  function updateIndicators(currentIndex) {
-    indicators.forEach((ind, i) => {
-      ind.classList.toggle('active', i === currentIndex);
-    });
-  }
-
-  function scrollToImage(i) {
-    index = (i + total) % total;
-    track.scrollTo({
-      left: images[index].offsetLeft,
-      behavior: 'smooth'
-    });
-    updateIndicators(index);
-  }
-
-  indicators.forEach((indicator, i) => {
-    indicator.addEventListener('click', () => {
-      scrollToImage(i);
-    });
-  });
-
-  function autoScroll() {
-    scrollToImage(index + 1);
-  }
-
-  let interval = setInterval(autoScroll, 5000);
-
-  carousel.addEventListener('scroll', () => {
-    clearInterval(interval);
-    interval = setInterval(autoScroll, 5000);
-
-    let closest = 0;
-    let minDist = Math.abs(track.scrollLeft - images[0].offsetLeft);
-    for (let i = 1; i < total; i++) {
-      const dist = Math.abs(track.scrollLeft - images[i].offsetLeft);
-      if (dist < minDist) {
-        minDist = dist;
-        closest = i;
-      }
-    }
-    index = closest;
-    updateIndicators(index);
-  });
+const track = document.querySelector('.carousel-track-wrapper');
+track.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
 });
+
+track.addEventListener('touchend', (e) => {
+  endX = e.changedTouches[0].clientX;
+  if (startX - endX > 50) {
+    moveSlide(1); // swipe left
+  } else if (endX - startX > 50) {
+    moveSlide(-1); // swipe right
+  }
+});
+
+// Initialize first slide
+updateSlidePosition();
