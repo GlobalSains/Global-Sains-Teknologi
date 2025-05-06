@@ -1,81 +1,79 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PT Global Sains Teknologi</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
     <div class="header-content">
-      <img src="images/logo.png" alt="Logo PT Global Sains Teknologi" class="logo" />
+      <img src="images/logo.png" alt="Logo PT Global Sains Teknologi" class="logo">
       <div class="logo-text">
         <h1>PT Global Sains Teknologi</h1>
       </div>
     </div>
   </header>
-
+  
+  <!-- Carousel Foto Karyawan -->
   <section class="employee-photo-carousel fade-in">
-    <div class="carousel-track-wrapper">
-      <div class="carousel-track">
-        <div class="employee-image-wrapper">
-          <img src="images/karyawan1.jpg" alt="Karyawan 1" class="employee-image" />
-          <div class="swipe-hint">Geser</div>
-        </div>
-        <div class="employee-image-wrapper">
-          <img src="images/karyawan2.jpg" alt="Karyawan 2" class="employee-image" />
-          <div class="swipe-hint">Geser</div>
-        </div>
-        <div class="employee-image-wrapper">
-          <img src="images/karyawan3.jpg" alt="Karyawan 3" class="employee-image" />
-          <div class="swipe-hint">Geser</div>
+    <div class="carousel-container">
+      <button class="carousel-button prev" onclick="moveSlide(-1)">&#10094;</button>
+      <div class="carousel-track-wrapper">
+        <div class="carousel-track">
+          <div class="employee-image-wrapper">
+            <img src="images/karyawan1.jpg" alt="Karyawan 1" class="employee-image">
+          </div>
+          <div class="employee-image-wrapper">
+            <img src="images/karyawan2.jpg" alt="Karyawan 2" class="employee-image">
+          </div>
+          <div class="employee-image-wrapper">
+            <img src="images/karyawan3.jpg" alt="Karyawan 3" class="employee-image">
+          </div>
         </div>
       </div>
-    </div>
-    <div class="carousel-indicators">
-      <span class="carousel-indicator active"></span>
-      <span class="carousel-indicator"></span>
-      <span class="carousel-indicator"></span>
+      <button class="carousel-button next" onclick="moveSlide(1)">&#10095;</button>
     </div>
   </section>
-
-  <section class="about fade-in">
+  
+  <!-- About Section -->
+  <section class="about fade-in bubble">
     <div class="about-container">
       <div class="about-text">
         <h2>Tentang PT Global Sains Teknologi</h2>
         <p>
           PT Global Sains Teknologi bergerak di bidang pendidikan dan pelatihan dengan tujuan meningkatkan kualitas pendidikan di Indonesia.
         </p>
-
+        <!-- Visi dan Misi -->
         <div class="vision-mission">
-          <div class="vision-box">
+          <div class="vision-box bubble">
             <h3 class="vision-title">VISION</h3>
             <p class="vision-text">
               Menjadi penyedia utama peralatan laboratorium, bahan kimia, dan perlengkapan umum, yang mendorong inovasi dan keunggulan dalam penelitian ilmiah dan solusi industri.
             </p>
           </div>
-          <div class="mission-box">
+          <div class="mission-box bubble">
             <h3 class="vision-title">MISSION</h3>
             <ul class="mission-list">
-              <li>1. Menyediakan peralatan laboratorium dan bahan kimia berkualitas tinggi yang memenuhi standar global.</li>
-              <li>2. Menawarkan solusi komprehensif untuk berbagai industri.</li>
-              <li>3. Membangun hubungan jangka panjang dengan klien.</li>
-              <li>4. Terus berinovasi dengan teknologi modern dan praktik berkelanjutan.</li>
+              <li>1. Menyediakan peralatan laboratorium dan bahan kimia berkualitas tinggi yang memenuhi standar global untuk akurasi, keamanan, dan keandalan.</li>
+              <li>2. Menawarkan solusi komprehensif untuk berbagai industri, memastikan efisiensi dan nilai dalam setiap rantai pasokan.</li>
+              <li>3. Membangun kepercayaan dan hubungan jangka panjang dengan klien melalui layanan pelanggan yang luar biasa dan penawaran yang disesuaikan</li>
+              <li>4. Terus berinovasi dengan merangkul teknologi modern dan praktik berkelanjutan untuk mendukung kemajuan ilmiah dan industri.</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
   </section>
-
+  
+  <!-- Contact Section -->
   <section class="contact-info fade-in">
     <div class="contact-overlay">
       <div class="office">
         <h3>Office & Factory</h3>
-        <p>Ruko The Plaza Bukti Cimanggu City Blok RKC-02,<br/>
-        Cibadak, Tanah Sareal, Bogor, Jawa Barat 16166</p>
+        <p>Ruko The Plaza Bukti Cimanggu City Blok RKC-02, Desa/Kelurahan Cibadak, Kec. Tanah Sareal, Kota Bogor, Provinsi Jawa Barat Kode Pos: 16166</p>
       </div>
       <div class="contact-methods">
         <h3>Hubungi Kami</h3>
@@ -83,16 +81,16 @@
           <li>Telp: 0251 - 2006016</li>
           <li>Fax: 0251 – 7544336</li>
           <li>Whatsapp: +62 81218003021</li>
-          <li>Email: globalsainsteknologi@gmail.com</li>
+          <li>Email: globalsainsteknologi@gmail.comm</li>
         </ul>
       </div>
     </div>
   </section>
-
+  
   <footer>
     <p>&copy; 2025 PT Global Sains Teknologi. All rights reserved.</p>
   </footer>
-
+  
   <script src="script.js"></script>
 </body>
 </html>
