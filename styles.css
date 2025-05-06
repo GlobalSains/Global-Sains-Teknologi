@@ -11,9 +11,9 @@ body {
 header {
   background-color: #1E2A47;
   color: white;
-  padding: 10px 0; /* Sesuaikan padding untuk header */
+  padding: 10px 0;
   display: flex;
-  justify-content: center; /* Memastikan header berpusat */
+  justify-content: center;
   align-items: center;
   width: 100%;
 }
@@ -21,46 +21,56 @@ header {
 .header-content {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Menjaga logo di kiri */
+  justify-content: flex-start;
   width: 100%;
   max-width: 1200px;
   padding: 0 20px;
 }
 
 .logo {
-  width: 40px; /* Ukuran logo yang disesuaikan */
+  width: 40px;
   height: auto;
-  margin-right: 20px; /* Jarak antara logo dan nama PT */
+  margin-right: 20px;
 }
 
 .logo-text h1 {
   margin: 0;
-  font-size: 2.2em; /* Ukuran font nama PT yang disesuaikan */
-  text-align: left; /* Nama PT akan rata kiri setelah logo */
+  font-size: 2.2em;
+  text-align: left;
 }
 
-/* Foto Karyawan */
-.employee-photo {
+/* Carousel Foto Karyawan */
+.employee-photo-carousel {
   text-align: center;
   margin: 40px 0;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
-.employee-photo img {
-  width: 300px;
+.employee-photo-carousel .carousel-track {
+  display: inline-flex;
+  gap: 20px;
+}
+
+.employee-image {
+  width: 250px;
   border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.employee-image:hover {
+  transform: scale(1.05);
 }
 
 /* About Section */
 .about-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   margin: 40px;
+  display: flex;
+  justify-content: center;
 }
 
 .about-text {
-  flex: 1;
-  padding-left: 20px;
+  max-width: 800px;
 }
 
 .about h2 {
@@ -72,41 +82,60 @@ header {
   font-weight: 400;
 }
 
-/* Produk Section */
-.products {
-  background-color: white;
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 40px;
+/* Visi Misi */
+.vision-mission {
+  margin-top: 30px;
 }
 
-.product-container {
+.vision-box,
+.mission-box {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-left: 6px solid #1E2A47;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.vision-title {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #1E2A47;
+  margin-bottom: 10px;
+}
+
+.vision-text,
+.mission-list {
+  font-size: 1em;
+  color: #444;
+}
+
+.mission-list li {
+  margin-bottom: 8px;
+}
+
+/* Kontak Section dengan background */
+.contact-info {
+  background-image: url("images/gedung-kantor.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 40px 20px;
+  color: white;
+}
+
+.contact-overlay {
+  background-color: rgba(30, 42, 71, 0.7); /* transparansi 30-40% */
+  padding: 30px;
   display: flex;
   justify-content: space-between;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
-.product-item {
-  width: 22%;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.product-item img {
-  width: 100%;
-  border-radius: 8px;
-}
-
-/* Kontak Section */
-.contact-info {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.contact-info .office,
-.contact-info .contact-methods {
-  width: 48%;
+.office,
+.contact-methods {
+  flex: 1 1 45%;
 }
 
 .contact-methods ul {
@@ -114,13 +143,8 @@ header {
   padding: 0;
 }
 
-.contact-methods a {
-  color: #1E2A47;
-  text-decoration: none;
-}
-
-.contact-methods a:hover {
-  color: #172441;
+.contact-methods li {
+  margin-bottom: 10px;
 }
 
 /* Footer */
@@ -129,7 +153,17 @@ footer {
   color: white;
   text-align: center;
   padding: 10px 0;
-  position: relative;
-  bottom: 0;
   width: 100%;
+}
+
+/* Fade-in Animasi */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
