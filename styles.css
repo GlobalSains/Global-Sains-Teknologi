@@ -1,10 +1,9 @@
-/* Mengatur font umum untuk seluruh halaman */
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
-  color: #333333;
+  color: #333;
 }
 
 /* Header */
@@ -14,40 +13,33 @@ header {
   padding: 10px 0;
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 100%;
 }
 
 .header-content {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  width: 100%;
   max-width: 1200px;
+  width: 100%;
   padding: 0 20px;
 }
 
 .logo {
   width: 40px;
-  height: auto;
   margin-right: 20px;
 }
 
 .logo-text h1 {
   margin: 0;
   font-size: 2.2em;
-  text-align: left;
 }
 
-/* Carousel untuk foto karyawan */
+/* Carousel */
 .employee-photo-carousel {
   position: relative;
   margin: 40px 0;
   width: 100%;
-  max-width: 100%;
   overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .carousel-track-wrapper {
@@ -60,82 +52,59 @@ header {
   display: flex;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
+}
+
+.employee-image-wrapper {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  position: relative;
 }
 
 .employee-image {
-  flex: 0 0 100%;
-  scroll-snap-align: center;
-  border-radius: 8px;
-  max-width: 100%;
+  width: 100%;
   height: auto;
-  transition: transform 0.3s ease-in-out;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
 
-/* Bubble effect pada foto karyawan */
 .employee-image:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  background-color: rgba(255, 255, 255, 0.7);
-  border: none;
-  color: #333;
-  font-size: 24px;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
-}
-
-.carousel-btn:hover {
-  background-color: rgba(255, 255, 255, 0.9);
-}
-
-.carousel-btn.prev {
-  left: 10px;
-}
-
-.carousel-btn.next {
-  right: 10px;
-}
-
-/* Indikator aktif di bawah carousel */
-.carousel-indicators {
+.swipe-hint {
   position: absolute;
   bottom: 10px;
+  right: 10px;
+  font-size: 0.9em;
+  color: #fff;
+  background: rgba(0,0,0,0.4);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 8px;
-  justify-content: center;
-  z-index: 20;
 }
 
 .carousel-indicator {
   width: 10px;
   height: 10px;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: #ccc;
   border-radius: 50%;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 .carousel-indicator.active {
-  background-color: rgba(255, 255, 255, 1);
+  background-color: #fff;
 }
 
-.carousel-indicator:hover {
-  background-color: rgba(255, 255, 255, 0.9);
-}
-
-/* About Section */
+/* About */
 .about-container {
   margin: 40px;
   display: flex;
@@ -146,78 +115,46 @@ header {
   max-width: 800px;
 }
 
-.about h2 {
-  color: #1E2A47;
-  font-weight: 700;
-}
-
-.about p {
-  font-weight: 400;
-}
-
-/* Visi Misi */
 .vision-mission {
   margin-top: 30px;
 }
 
-.vision-box,
-.mission-box {
-  background-color: #fff;
+.vision-box, .mission-box {
+  background: #fff;
   padding: 20px;
   margin-bottom: 20px;
   border-left: 6px solid #1E2A47;
   border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .vision-title {
-  font-size: 1.2em;
-  font-weight: 700;
   color: #1E2A47;
-  margin-bottom: 10px;
 }
 
-.vision-text,
-.mission-list {
-  font-size: 1em;
-  color: #444;
-}
-
-.mission-list li {
-  margin-bottom: 8px;
-}
-
-/* Kontak Section dengan background */
+/* Kontak */
 .contact-info {
   background-image: url("images/gedung-kantor.jpg");
   background-size: cover;
   background-position: center;
-  position: relative;
-  padding: 40px 20px;
   color: white;
+  padding: 40px 20px;
 }
 
 .contact-overlay {
-  background-color: rgba(30, 42, 71, 0.7); /* transparansi 30-40% */
+  background-color: rgba(30,42,71,0.7);
   padding: 30px;
   display: flex;
-  justify-content: space-between;
   gap: 20px;
   flex-wrap: wrap;
 }
 
-.office,
-.contact-methods {
+.office, .contact-methods {
   flex: 1 1 45%;
 }
 
 .contact-methods ul {
-  list-style-type: none;
   padding: 0;
-}
-
-.contact-methods li {
-  margin-bottom: 10px;
+  list-style: none;
 }
 
 /* Footer */
@@ -225,18 +162,29 @@ footer {
   background-color: #1E2A47;
   color: white;
   text-align: center;
-  padding: 10px 0;
-  width: 100%;
+  padding: 10px;
 }
 
-/* Fade-in Animasi */
+/* Fade-in */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: 0.8s ease;
 }
 
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-overlay {
+    flex-direction: column;
+  }
 }
