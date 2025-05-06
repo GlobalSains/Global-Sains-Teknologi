@@ -39,49 +39,58 @@ header {
   text-align: left;
 }
 
-/* Carousel Foto Karyawan - scroll geser 1 per 1 */
 .employee-photo-carousel {
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  display: flex;
-  gap: 0;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  position: relative;
   margin: 40px 0;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.carousel-track-wrapper {
+  overflow-x: hidden;
 }
 
 .carousel-track {
   display: flex;
-  width: 100%;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
 .employee-image {
   flex: 0 0 100%;
-  max-width: 100%;
-  height: auto;
   scroll-snap-align: center;
   border-radius: 8px;
+  max-width: 100%;
+  height: auto;
 }
 
-/* Dot Carousel */
-.carousel-dots {
-  text-align: center;
-  margin-top: 10px;
-}
-
-.dot {
-  height: 12px;
-  width: 12px;
-  margin: 0 6px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.4s ease;
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  color: #333;
+  font-size: 24px;
+  padding: 5px 10px;
   cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
 }
 
-.dot.active {
-  background-color: #1E2A47;
+.carousel-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
 }
 
 /* About Section */
