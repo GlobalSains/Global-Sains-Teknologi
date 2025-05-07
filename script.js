@@ -54,3 +54,14 @@ setInterval(() => {
   createSectionBubble(aboutBubbleContainer);
   createSectionBubble(visiMisiBubbleContainer);
 }, 500);
+
+document.addEventListener('DOMContentLoaded', function () {
+  const whatsappButton = document.getElementById('whatsapp-button');
+  whatsappButton.style.opacity = 0;  // Mulai dengan transparan
+
+  // Efek animasi muncul
+  setTimeout(() => {
+    whatsappButton.style.transition = "opacity 1s ease-in";
+    whatsappButton.style.opacity = 1;  // Menjadi terlihat setelah 1 detik
+  }, 500); // Menunggu setengah detik sebelum animasi dimulai
+});
