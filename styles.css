@@ -253,3 +253,24 @@ footer {
   pointer-events: none;
   z-index: -1;
 }
+
+/* WhatsApp Floating Button */
+#whatsapp-button {
+  position: fixed;
+  bottom: 20px; /* Jarak dari bawah */
+  right: 20px; /* Jarak dari kanan */
+  background-color: #25d366; /* Warna hijau WhatsApp */
+  border-radius: 50%; /* Membuat tombol berbentuk lingkaran */
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+  transition: transform 0.3s ease;
+}
+
+#whatsapp-button img {
+  width: 50px; /* Ukuran gambar */
+  height: 50px;
+}
+
+#whatsapp-button:hover {
+  transform: scale(1.1); /* Efek perbesar saat hover */
+}
